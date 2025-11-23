@@ -1,0 +1,4 @@
+# Python dependencies for MMM-LaunchBrowser home button feature
+# Install with: pip3 install -r requirements.txt
+
+psutil>=5.8.0

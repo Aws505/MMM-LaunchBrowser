@@ -1,0 +1,33 @@
+{
+  "name": "mmm-launchbrowser",
+  "version": "1.0.0",
+  "description": "MagicMirror² module for launching browsers with clickable icons",
+  "main": "MMM-LaunchBrowser.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR-USERNAME/MMM-LaunchBrowser.git"
+  },
+  "keywords": [
+    "magicmirror",
+    "module",
+    "browser",
+    "launcher",
+    "kiosk",
+    "firefox",
+    "chromium"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR-USERNAME/MMM-LaunchBrowser/issues"
+  },
+  "homepage": "https://github.com/YOUR-USERNAME/MMM-LaunchBrowser#readme",
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
