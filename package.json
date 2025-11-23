@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR-USERNAME/MMM-LaunchBrowser.git"
+    "url": "git+https://github.com/Aws505/MMM-LaunchBrowser.git"
   },
   "keywords": [
     "magicmirror",
@@ -22,9 +22,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/YOUR-USERNAME/MMM-LaunchBrowser/issues"
+    "url": "https://github.com/Aws505/MMM-LaunchBrowser/issues"
   },
-  "homepage": "https://github.com/YOUR-USERNAME/MMM-LaunchBrowser#readme",
+  "homepage": "https://github.com/Aws505/MMM-LaunchBrowser#readme",
   "dependencies": {},
   "devDependencies": {},
   "engines": {

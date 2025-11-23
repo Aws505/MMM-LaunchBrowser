@@ -32,7 +32,7 @@ Navigate to your MagicMirror modules directory and clone this repository:
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/YOUR-USERNAME/MMM-LaunchBrowser.git
+git clone https://github.com/Aws505/MMM-LaunchBrowser.git
 ```
 
 ### Step 2: Install Python Dependencies

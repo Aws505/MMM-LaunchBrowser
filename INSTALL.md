@@ -5,7 +5,7 @@
 ```bash
 # 1. Clone the module
 cd ~/MagicMirror/modules
-git clone https://github.com/YOUR-USERNAME/MMM-LaunchBrowser.git
+git clone https://github.com/Aws505/MMM-LaunchBrowser.git
 
 # 2. Install Python dependencies
 pip3 install -r MMM-LaunchBrowser/requirements.txt
@@ -40,7 +40,7 @@ pip3 --version   # Should be installed
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/YOUR-USERNAME/MMM-LaunchBrowser.git
+git clone https://github.com/Aws505/MMM-LaunchBrowser.git
 ```
 
 ### Step 3: Install Python Dependencies
@@ -287,6 +287,6 @@ pip install -r requirements.txt
 
 ## Support
 
-- **Issues:** Report bugs at [GitHub Issues](https://github.com/YOUR-USERNAME/MMM-LaunchBrowser/issues)
+- **Issues:** Report bugs at [GitHub Issues](https://github.com/Aws505/MMM-LaunchBrowser/issues)
 - **Documentation:** See [README.md](README.md) for full documentation
 - **Examples:** See [config-example.js](config-example.js) for configuration examples
