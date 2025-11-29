@@ -8,6 +8,7 @@ Module.register("MMM-LaunchBrowser", {
     browserCommand: "firefox --kiosk",  // or your preferred flags
     cssClass: "",
     fontSize: "40px",
+    zoom: 100,  // Browser zoom level (30, 50, 67, 80, 90, 100, 110, 120, 133, 150, 170, 200, 240, 300)
     // Home button configuration
     enableHomeButton: true,
     homeButton: {
