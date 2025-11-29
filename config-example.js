@@ -17,6 +17,7 @@
     label: "YouTube",
     icon: "📺",
     browserCommand: "firefox --kiosk",
+    zoom: 100,  // Default zoom (optional, defaults to 100%)
     enableHomeButton: true  // Home button enabled by default
   }
 }
