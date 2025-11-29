@@ -114,6 +114,7 @@ Add the module to your `config/config.js` file:
 | `browserCommand` | `string` | `"firefox --kiosk"` | Browser command with flags |
 | `cssClass` | `string` | `""` | Additional CSS class for custom styling |
 | `fontSize` | `string` | `"40px"` | Size of the icon |
+| `zoom` | `number` | `100` | Browser zoom level percentage (30, 50, 67, 80, 90, 100, 110, 120, 133, 150, 170, 200, 240, 300) |
 | `enableHomeButton` | `boolean` | `true` | Enable/disable the home button overlay |
 
 ### Home Button Options
