@@ -59,6 +59,81 @@ module.exports = NodeHelper.create({
     return args.join(" ");
   },
 
+  getBrowserClass(browserCommand) {
+    // Extract browser name from command and map to window class
+    const browserMatch = browserCommand?.match(/^(\w+)/);
+    const browserName = browserMatch ? browserMatch[1].toLowerCase() : "firefox";
+
+    // Map browser commands to xdotool window classes
+    const browserClassMap = {
+      firefox: "firefox",
+      chromium: "chromium",
+      "chromium-browser": "chromium",
+      chrome: "chrome",
+      "google-chrome": "chrome",
+      brave: "brave",
+      opera: "opera",
+      vivaldi: "vivaldi"
+    };
+
+    return browserClassMap[browserName] || "firefox";
+  },
+
+  applyInstantZoom(windowId, zoomLevel, browserCommand) {
+    // Standard browser zoom levels (works for Firefox, Chromium, Chrome, etc.)
+    // These are the typical zoom percentages browsers use
+    const zoomMap = {
+      30: -7,
+      50: -6,
+      67: -5,
+      80: -4,
+      90: -3,
+      100: 0,   // Default, no keypresses needed
+      110: 1,
+      120: 2,
+      133: 3,
+      150: 4,
+      170: 5,
+      200: 6,
+      240: 7,
+      300: 8
+    };
+
+    // Find the closest zoom level
+    const steps = zoomMap[zoomLevel] ?? 0;
+
+    if (steps === 0) {
+      // Just reset to 100%
+      const zoomScript = `DISPLAY=:0 xdotool windowactivate ${windowId} && DISPLAY=:0 xdotool key --clearmodifiers ctrl+0`;
+      exec(zoomScript, (error) => {
+        if (error) {
+          console.error("MMM-LaunchBrowser: Zoom reset failed:", error.message);
+        } else {
+          console.log(`MMM-LaunchBrowser: ${zoomLevel}% zoom applied`);
+        }
+      });
+    } else {
+      // Reset to 100%, then apply zoom steps
+      const key = steps > 0 ? 'plus' : 'minus';
+      const keypresses = Array(Math.abs(steps)).fill(`ctrl+${key}`).join(' ');
+
+      const zoomScript = `
+        DISPLAY=:0 xdotool windowactivate ${windowId} && \
+        DISPLAY=:0 xdotool key --clearmodifiers ctrl+0 && \
+        sleep 0.1 && \
+        DISPLAY=:0 xdotool key --clearmodifiers ${keypresses}
+      `;
+
+      exec(zoomScript, (error) => {
+        if (error) {
+          console.error("MMM-LaunchBrowser: Instant zoom failed:", error.message);
+        } else {
+          console.log(`MMM-LaunchBrowser: ${zoomLevel}% zoom applied (${steps} steps)`);
+        }
+      });
+    }
+  },
+
   socketNotificationReceived(notification, payload) {
     if (notification === "OPEN_BROWSER" && payload && payload.url) {
       const url = payload.url;
