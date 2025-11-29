@@ -281,6 +281,122 @@
 }
 
 // ============================================
+// BROWSER ZOOM EXAMPLES
+// ============================================
+
+// Zoomed in for better readability (150%)
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://youtube.com",
+    label: "YouTube",
+    icon: "📺",
+    browserCommand: "firefox --kiosk",
+    zoom: 150  // 1.5x larger for viewing from distance
+  }
+}
+
+// Maximum zoom for accessibility (200%)
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://news.ycombinator.com",
+    label: "News",
+    icon: "📰",
+    browserCommand: "firefox --kiosk",
+    zoom: 200  // Double size for easier reading
+  }
+}
+
+// Zoomed out to see more content (80%)
+{
+  module: "MMM-LaunchBrowser",
+  position: "bottom_left",
+  config: {
+    url: "http://homeassistant.local:8123",
+    label: "Home Assistant",
+    icon: "🏡",
+    browserCommand: "firefox --kiosk",
+    zoom: 80  // Zoom out to see more dashboard widgets
+  }
+}
+
+// Very small zoom for data dashboards (67%)
+{
+  module: "MMM-LaunchBrowser",
+  position: "middle_center",
+  config: {
+    url: "https://grafana.example.com",
+    label: "Grafana",
+    icon: "📊",
+    browserCommand: "firefox --kiosk",
+    zoom: 67  // Show maximum data on screen
+  }
+}
+
+// Slightly larger for comfort (120%)
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://github.com",
+    label: "GitHub",
+    icon: "💻",
+    browserCommand: "firefox --kiosk",
+    zoom: 120  // Slightly larger for easier reading
+  }
+}
+
+// Multiple launchers with different zoom levels
+{
+  module: "MMM-LaunchBrowser",
+  position: "middle_center",
+  config: {
+    url: "https://youtube.com",
+    icon: "📺",
+    label: "YouTube",
+    zoom: 150  // Large for video viewing
+  }
+},
+{
+  module: "MMM-LaunchBrowser",
+  position: "middle_center",
+  config: {
+    url: "https://gmail.com",
+    icon: "📧",
+    label: "Gmail",
+    zoom: 100  // Normal size for reading emails
+  }
+},
+{
+  module: "MMM-LaunchBrowser",
+  position: "middle_center",
+  config: {
+    url: "http://nodered.local:1880",
+    icon: "🔴",
+    label: "Node-RED",
+    zoom: 80  // Smaller to see flow diagrams
+  }
+}
+
+// Extreme zoom for very large displays (300%)
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_center",
+  config: {
+    url: "https://clock.example.com",
+    label: "Clock",
+    icon: "🕐",
+    zoom: 300  // Maximum zoom for large TV screens
+  }
+}
+
+// Supported zoom levels: 30, 50, 67, 80, 90, 100, 110, 120, 133, 150, 170, 200, 240, 300
+// Any other value will default to 100%
+
+// ============================================
 // UNICODE ICONS
 // ============================================
 
