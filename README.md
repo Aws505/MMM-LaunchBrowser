@@ -10,6 +10,7 @@ A MagicMirror² module that creates clickable launcher icons to open websites in
 - **Customizable icons** - Use emoji, Unicode symbols, or HTML icons
 - **Flexible browser control** - Launch browsers with custom commands and flags
 - **Kiosk mode support** - Perfect for full-screen displays
+- **Configurable zoom** - Set browser zoom level from 30% to 300% on launch
 - **Built-in home button** - Floating overlay button to close browser and return to MagicMirror
 - **Easy styling** - Built-in CSS classes for customization
 - **Multiple launchers** - Add as many launcher instances as you need
