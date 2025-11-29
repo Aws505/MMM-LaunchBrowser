@@ -252,6 +252,168 @@ The home button is a floating overlay that appears when the browser is running. 
 }
 ```
 
+## Browser Zoom Feature
+
+The zoom feature allows you to set the browser zoom level when launching. The zoom is applied immediately after the browser window opens using keyboard shortcuts (Ctrl+Plus/Minus).
+
+### How It Works
+
+1. The browser launches with your specified URL
+2. After a brief delay (2 seconds), the zoom is automatically applied
+3. The module uses xdotool to send keyboard shortcuts to the browser
+4. Works with Firefox, Chromium, Chrome, Brave, Opera, and Vivaldi
+
+### Supported Zoom Levels
+
+The following zoom levels are supported (standard browser zoom steps):
+
+| Zoom Level | Description |
+|------------|-------------|
+| 30% | Minimum zoom (very small) |
+| 50% | Half size |
+| 67% | Two-thirds size |
+| 80% | Slightly smaller |
+| 90% | Slightly smaller |
+| 100% | Default (no zoom) |
+| 110% | Slightly larger |
+| 120% | Larger |
+| 133% | Significantly larger |
+| 150% | 1.5x size |
+| 170% | Large |
+| 200% | Double size |
+| 240% | Very large |
+| 300% | Maximum zoom (3x size) |
+
+### Basic Zoom Example
+
+```javascript
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://youtube.com",
+    label: "YouTube",
+    icon: "📺",
+    browserCommand: "firefox --kiosk",
+    zoom: 150  // Launch at 150% zoom
+  }
+}
+```
+
+### Zoom for Accessibility
+
+Use larger zoom levels for better readability:
+
+```javascript
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://news.ycombinator.com",
+    label: "News",
+    icon: "📰",
+    zoom: 200  // Double size for easier reading
+  }
+}
+```
+
+### Zoom for Small Text Websites
+
+Some websites have very small text by default:
+
+```javascript
+{
+  module: "MMM-LaunchBrowser",
+  position: "middle_center",
+  config: {
+    url: "https://github.com",
+    label: "GitHub",
+    icon: "💻",
+    browserCommand: "firefox --kiosk",
+    zoom: 120  // Slightly larger for comfort
+  }
+}
+```
+
+### Zoom Out for Dashboards
+
+Use smaller zoom for dashboards to see more content:
+
+```javascript
+{
+  module: "MMM-LaunchBrowser",
+  position: "bottom_left",
+  config: {
+    url: "http://homeassistant.local:8123",
+    label: "Home Assistant",
+    icon: "🏡",
+    browserCommand: "firefox --kiosk",
+    zoom: 80  // Zoom out to see more dashboard widgets
+  }
+}
+```
+
+### Different Zoom Levels for Different Sites
+
+```javascript
+// YouTube - Larger for viewing from distance
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://youtube.com",
+    icon: "📺",
+    zoom: 150
+  }
+},
+// Gmail - Normal size
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://gmail.com",
+    icon: "📧",
+    zoom: 100
+  }
+},
+// Analytics Dashboard - Smaller to see more data
+{
+  module: "MMM-LaunchBrowser",
+  position: "top_left",
+  config: {
+    url: "https://analytics.example.com",
+    icon: "📊",
+    zoom: 67
+  }
+}
+```
+
+### Troubleshooting Zoom
+
+**Zoom doesn't apply:**
+1. Ensure `xdotool` is installed: `sudo apt-get install xdotool`
+2. Check MagicMirror logs: `pm2 logs MagicMirror | grep zoom`
+3. Try increasing the delay in node_helper.js (default is 2000ms)
+
+**Wrong zoom level applied:**
+1. Verify you're using a supported zoom level (see table above)
+2. Unsupported zoom values will default to 100%
+
+**Zoom works on some browsers but not others:**
+1. Check the browser window class name: `xdotool search --class firefox`
+2. Some browsers may use different window class names
+
+### Requirements for Zoom
+
+- `xdotool` must be installed on your system
+- Works in X11 environments (Linux desktop)
+- Browser must support standard zoom keyboard shortcuts (Ctrl+Plus/Minus/0)
+
+**Install xdotool:**
+```bash
+sudo apt-get install xdotool
+```
+
 ### Position Examples
 
 ```javascript
