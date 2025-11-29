@@ -54,7 +54,8 @@ Module.register("MMM-LaunchBrowser", {
         url: this.config.url,
         browserCommand: this.config.browserCommand,
         enableHomeButton: this.config.enableHomeButton,
-        homeButton: this.config.homeButton
+        homeButton: this.config.homeButton,
+        zoom: this.config.zoom
       });
     });
 
