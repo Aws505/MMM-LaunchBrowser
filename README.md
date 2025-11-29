@@ -738,6 +738,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Changelog
 
+### Version 1.1.0 (2025-11-29)
+- Added configurable zoom feature (30% to 300%)
+- Support for multiple browsers (Firefox, Chromium, Chrome, Brave, Opera, Vivaldi)
+- Automatic browser window detection for zoom application
+- Enhanced documentation with zoom examples
+
 ### Version 1.0.0 (2025-11-23)
 - Initial release
 - Basic browser launching functionality
