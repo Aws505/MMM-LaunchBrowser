@@ -139,6 +139,7 @@ module.exports = NodeHelper.create({
       const url = payload.url;
       const browserCommand = payload.browserCommand || "firefox --kiosk";
       const enableHomeButton = payload.enableHomeButton !== false; // Default true
+      const zoomLevel = payload.zoom || 100; // Default to 100% if not specified
 
       // Start home button if enabled
       if (enableHomeButton && payload.homeButton) {
@@ -149,10 +150,31 @@ module.exports = NodeHelper.create({
       const safeUrl = url.replace(/'/g, "'\\''");
       const cmd = `${browserCommand} '${safeUrl}' &`;
 
-      console.log(`MMM-LaunchBrowser: Executing: ${cmd}`);
+      console.log(`MMM-LaunchBrowser: Launching browser with ${zoomLevel}% zoom: ${cmd}`);
+
+      // Launch browser
       exec(cmd, (error) => {
         if (error) {
           console.error("MMM-LaunchBrowser error:", error);
+          return;
+        }
+
+        // Apply zoom if not 100%
+        if (zoomLevel !== 100) {
+          console.log("MMM-LaunchBrowser: Browser launched, applying zoom...");
+
+          // Wait briefly for window to appear, then apply zoom
+          setTimeout(() => {
+            const browserClass = this.getBrowserClass(browserCommand);
+            exec(`DISPLAY=:0 xdotool search --class ${browserClass}`, (err, stdout) => {
+              if (!err && stdout.trim()) {
+                const windowId = stdout.trim().split('\n')[0];
+                this.applyInstantZoom(windowId, zoomLevel, browserCommand);
+              } else {
+                console.error("MMM-LaunchBrowser: Could not find browser window for zoom");
+              }
+            });
+          }, 2000);
         }
       });
     }
